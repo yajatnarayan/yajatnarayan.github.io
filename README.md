@@ -1,16 +1,19 @@
-# Portfolio Website
+# Portfolio Website (React + Vite)
 
-Static portfolio scaffold with sections for hero, about, projects, skills, and contact.
+Modern React scaffold for a personal portfolio with sections for hero, projects, skills, and contact.
+
+## Getting started
+1) Install dependencies: `npm install`
+2) Start dev server: `npm run dev` (defaults to http://localhost:5173)
+3) Build for production: `npm run build`
 
 ## Structure
-- `index.html` – Semantic layout with anchors for each section.
-- `styles.css` – Global styles, layout, and responsive tweaks.
-- `script.js` – Lightweight nav interactions and active-section highlighting.
+- `src/App.jsx` – Page layout and section content.
+- `src/App.css` – Layout, components, and responsive styling.
+- `src/index.css` – Global variables, typography, and background.
+- `index.html` – Base document and metadata for the Vite app.
 
-## Running locally
-Open `index.html` in your browser. No build step or dependencies are required.
-
-## Customizing
-- Replace placeholder copy (name, bio, project blurbs) in `index.html`.
-- Update colors or typography in the CSS variables at the top of `styles.css`.
-- Wire project/contact links to real destinations when ready.
+## Customization
+- Update copy, links, and data in `src/App.jsx`.
+- Adjust colors, spacing, and typography in `src/index.css` and `src/App.css`.
+- Replace placeholder project/contact URLs with real destinations.
