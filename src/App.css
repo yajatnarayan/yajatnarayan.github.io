@@ -286,6 +286,13 @@
   border: 1px solid var(--border);
 }
 
+.list {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .link {
   display: inline-flex;
   align-items: center;

@@ -3,49 +3,125 @@ import './App.css'
 
 const navItems = [
   { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ]
 
 const projects = [
   {
-    title: 'Design System Starter',
-    tag: 'React',
+    title: 'Holos VR Training Platform',
+    tag: 'VR',
     description:
-      'Tokens, primitives, and Storybook docs that keep product, design, and engineering aligned.',
-    pills: ['Accessibility', 'Design tokens', 'Docs'],
+      'Building VR training software with Unity and Swift to streamline U.S. Air Force equipment training and reduce risk.',
+    pills: ['Unity', 'Swift', 'UX testing', 'Figma'],
+    link: 'https://www.linkedin.com/in/yajat-narayan-905926245/',
   },
   {
-    title: 'Insight Dashboard',
-    tag: 'TypeScript',
+    title: 'Moon Bar Digital Experience',
+    tag: 'Web',
     description:
-      'Responsive data viz with keyboard-first controls, offline-friendly caching, and staged loading.',
-    pills: ['Data viz', 'State machines', 'Caching'],
+      'Interactive marketing site with analytics and SEO tuning that drives >$50k monthly sales for a hospitality partner.',
+    pills: ['JavaScript', 'SEO', 'Analytics', 'Figma'],
+    link: 'https://github.com/yajatnarayan',
   },
   {
-    title: 'Launch Microsite',
-    tag: 'CSS',
+    title: 'Deep Learning Scene Recognition',
+    tag: 'AI',
     description:
-      'Motion-rich product story with scroll-triggered reveals, semantic markup, and SEO-friendly structure.',
-    pills: ['Animations', 'SEO', 'Responsive art'],
+      'LeNet-5 CNN in PyTorch for MiniPlaces; achieved 25%+ validation improvement with tuning and augmentation.',
+    pills: ['Python', 'PyTorch', 'CNN', 'Data pipelines'],
+    link: 'https://github.com/yajatnarayan/NeuralNetwork',
+  },
+  {
+    title: 'Password Security Analysis',
+    tag: 'Security',
+    description:
+      'Password hardening with Argon1, breach detection APIs, and simulated cracking to reduce vulnerability by 80%.',
+    pills: ['Python', 'Encryption', 'Security'],
+    link: 'https://github.com/yajatnarayan',
+  },
+]
+
+const experiences = [
+  {
+    company: 'Holos.io',
+    location: 'Madison, WI',
+    timeframe: 'Aug 2025 – Present',
+    role: 'Software Developer',
+    focus: 'VR Development, Unity, Swift, Figma Prototyping, UX Testing',
+    bullets: [
+      'Building VR training software for U.S. Air Force operations; prototyping with Unity and Swift.',
+      'Contributing to a $15M contract with user studies, iterative prototyping, and UX validation.',
+      'Improved training efficiency by 35% through simulation refinements.',
+    ],
+  },
+  {
+    company: 'Moon Bar',
+    location: 'Madison, WI',
+    timeframe: 'Sep 2025 – Oct 2025',
+    role: 'Web Developer',
+    focus: 'JavaScript, HTML/CSS, SEO, Analytics, Figma',
+    bullets: [
+      'Shipped an interactive site with analytics and SEO optimization.',
+      'Boosted visibility and engagement, driving $50k+ monthly sales.',
+    ],
+  },
+  {
+    company: 'Siemens Industry Inc',
+    location: 'Buffalo Grove, IL',
+    timeframe: 'May 2025 – Aug 2025',
+    role: 'Software Developer',
+    focus: 'AWS, DynamoDB, CI/CD, Go, Automation, Data Processing',
+    bullets: [
+      'Built a decoupled CI/CD pipeline for 100k+ data points across AWS and DynamoDB.',
+      'Raised data management efficiency by 35% with async processing and automation.',
+      'Cut downtime by 45% via automated validation and continuous deployment.',
+    ],
+  },
+  {
+    company: 'Greeky',
+    location: 'Remote',
+    timeframe: 'Jun 2024 – Aug 2024',
+    role: 'Web Developer',
+    focus: 'React, Docker, CI/CD, Frontend Optimization',
+    bullets: [
+      'Delivered responsive UIs with React and Dockerized deployments.',
+      'Reduced load times by 40%, generating $2k revenue in the first month.',
+    ],
+  },
+  {
+    company: 'Codivate',
+    location: 'Remote',
+    timeframe: 'Jun 2020 – Aug 2021',
+    role: 'Founder & Instructor',
+    focus: 'Java, Curriculum Design, Education Management',
+    bullets: ['Taught K-12 Java and managed 10 tutors, increasing retention by 30%.'],
   },
 ]
 
 const skills = [
   {
-    title: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Vite', 'CSS Modules', 'Framer Motion'],
+    title: 'Programming',
+    items: ['Python', 'Java', 'Go', 'Swift', 'C', 'JavaScript/React', 'SQL/MySQL', 'Julia'],
   },
   {
-    title: 'Quality',
-    items: ['Jest', 'Vitest', 'Playwright', 'Storybook', 'Lighthouse', 'Accessibility audits'],
+    title: 'Cloud & Ops',
+    items: ['AWS', 'Docker', 'CI/CD', 'DynamoDB', 'Git', 'Automation pipelines'],
   },
   {
-    title: 'Backend & Ops',
-    items: ['Node', 'Express', 'REST', 'PostgreSQL', 'Docker', 'CI/CD'],
+    title: 'Product & Tools',
+    items: ['Figma', 'UX testing', 'Analytics/SEO', 'Linear', 'VSCode', 'PyCharm', 'Eclipse'],
   },
 ]
+
+const education = {
+  school: 'University of Wisconsin–Madison',
+  timeline: 'Aug 2022 – Oct 2025',
+  details: ['B.S. Computer Science', 'Minor: Mathematics'],
+}
 
 function App() {
   const [navOpen, setNavOpen] = useState(false)
@@ -119,8 +195,8 @@ function App() {
             <p className="eyebrow">Portfolio 2025</p>
             <h1>Yajat Narayan</h1>
             <p className="lede">
-              Frontend-focused developer crafting crisp interfaces, thoughtful interactions, and durable web
-              experiences.
+              CS @ UW–Madison (Math minor) building VR training and performant web experiences. Certified in AWS Cloud,
+              Network+, and Security+, with hands-on product, UX, and CI/CD delivery.
             </p>
             <div className="hero__actions">
               <a className="btn" href="#projects">
@@ -133,39 +209,39 @@ function App() {
             <div className="hero__meta">
               <div>
                 <p className="meta__label">Location</p>
-                <p className="meta__value">Remote / IST</p>
+                <p className="meta__value">Madison, WI · Remote-friendly</p>
               </div>
               <div>
                 <p className="meta__label">Focus</p>
-                <p className="meta__value">UI engineering, UX polish, performance</p>
+                <p className="meta__value">VR training, frontend engineering, data-driven UX</p>
               </div>
               <div>
                 <p className="meta__label">Currently</p>
-                <p className="meta__value">Building personal case studies</p>
+                <p className="meta__value">Software Developer @ Holos.io</p>
               </div>
             </div>
           </div>
           <div className="hero__panel">
             <div className="panel__header">
               <p className="eyebrow">Snapshot</p>
-              <span className="pill pill--success">Available for work</span>
+              <span className="pill pill--success">Open to roles</span>
             </div>
             <ul className="panel__list">
               <li>
-                <p className="meta__label">Years in web</p>
-                <p className="meta__value">3+</p>
+                <p className="meta__label">GitHub</p>
+                <p className="meta__value">6 public repos · active since 2020</p>
               </li>
               <li>
-                <p className="meta__label">Favorite stack</p>
-                <p className="meta__value">React, TypeScript, CSS-in-JS</p>
+                <p className="meta__label">Certifications</p>
+                <p className="meta__value">AWS Cloud Practitioner, Network+, Security+</p>
               </li>
               <li>
-                <p className="meta__label">What I ship</p>
-                <p className="meta__value">Accessible, responsive, tested UIs</p>
+                <p className="meta__label">Tooling</p>
+                <p className="meta__value">AWS, Docker, Figma, CI/CD, Analytics</p>
               </li>
             </ul>
             <div className="panel__footer">
-              <p>Open to collaborations, contract, or full-time opportunities.</p>
+              <p>Collaborating on VR, frontend, and data-heavy products.</p>
               <a className="link" href="#contact">
                 Drop a line →
               </a>
@@ -173,13 +249,41 @@ function App() {
           </div>
         </section>
 
+        <section className="section" id="experience" data-section>
+          <div className="section__header">
+            <p className="eyebrow">Experience</p>
+            <h2>Recent roles & impact</h2>
+            <p className="section__lede">
+              Product-focused engineering across VR training, web experiences, and data-heavy workflows.
+            </p>
+          </div>
+          <div className="grid">
+            {experiences.map((exp) => (
+              <article key={exp.company} className="card card--project">
+                <div className="card__header">
+                  <div>
+                    <h3>{exp.company}</h3>
+                    <p className="meta__label">{exp.location}</p>
+                  </div>
+                  <span className="pill">{exp.timeframe}</span>
+                </div>
+                <p className="meta__label">{exp.role}</p>
+                <p>{exp.focus}</p>
+                <ul className="list">
+                  {exp.bullets.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="section" id="projects" data-section>
           <div className="section__header">
             <p className="eyebrow">Projects</p>
             <h2>Selected work and explorations</h2>
-            <p className="section__lede">
-              Case studies and prototypes that highlight execution, UX polish, and systems thinking.
-            </p>
+            <p className="section__lede">Case studies spanning VR, web, ML, and security.</p>
           </div>
           <div className="grid">
             {projects.map((project) => (
@@ -194,8 +298,8 @@ function App() {
                     <span key={pill}>{pill}</span>
                   ))}
                 </div>
-                <a className="link" href="#">
-                  Read more →
+                <a className="link" href={project.link}>
+                  View details →
                 </a>
               </article>
             ))}
@@ -222,6 +326,21 @@ function App() {
           </div>
         </section>
 
+        <section className="section" id="education" data-section>
+          <div className="section__header">
+            <p className="eyebrow">Education</p>
+            <h2>{education.school}</h2>
+            <p className="section__lede">{education.timeline}</p>
+          </div>
+          <div className="card card--stacked">
+            {education.details.map((item) => (
+              <p key={item} className="meta__value">
+                {item}
+              </p>
+            ))}
+          </div>
+        </section>
+
         <section className="section" id="contact" data-section>
           <div className="section__header">
             <p className="eyebrow">Contact</p>
@@ -232,15 +351,15 @@ function App() {
             <div className="card">
               <h3>Prefer email?</h3>
               <p>Reach out with a short brief, and I&apos;ll reply within one business day.</p>
-              <a className="btn" href="mailto:hello@yajatnarayan.com">
-                hello@yajatnarayan.com
+              <a className="btn" href="mailto:yajatnarayan@gmail.com">
+                yajatnarayan@gmail.com
               </a>
             </div>
             <div className="card card--stacked">
               <div>
                 <p className="meta__label">LinkedIn</p>
-                <a className="link" href="https://www.linkedin.com">
-                  linkedin.com/in/yajatnarayan
+                <a className="link" href="https://www.linkedin.com/in/yajat-narayan-905926245/">
+                  linkedin.com/in/yajat-narayan-905926245
                 </a>
               </div>
               <div>
@@ -251,9 +370,7 @@ function App() {
               </div>
               <div>
                 <p className="meta__label">Resume</p>
-                <a className="link" href="#">
-                  Request the latest PDF →
-                </a>
+                <p className="meta__value">Available on request</p>
               </div>
             </div>
           </div>
