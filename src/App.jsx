@@ -149,6 +149,7 @@ function App() {
   })
   const [isDragging, setIsDragging] = useState(false)
   const [marqueeOffset, setMarqueeOffset] = useState(0)
+  const [marqueeWidth, setMarqueeWidth] = useState(0)
   const marqueeRef = useRef(null)
   const dragState = useRef({ startX: 0, startOffset: 0, lastX: 0, lastTime: 0 })
   const velocityRef = useRef(0)
@@ -184,6 +185,24 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    const measure = () => {
+      if (marqueeRef.current) {
+        setMarqueeWidth(marqueeRef.current.scrollWidth / 2)
+      }
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  const normalizeOffset = (value) => {
+    if (!marqueeWidth) return value
+    let x = value % marqueeWidth
+    if (x > 0) x -= marqueeWidth
+    return x
+  }
+
   const startDrag = (event) => {
     const clientX = event.touches ? event.touches[0].clientX : event.clientX
     if (rafRef.current) {
@@ -206,7 +225,7 @@ function App() {
     const delta = clientX - dragState.current.startX
     const frameDelta = clientX - dragState.current.lastX
     const dt = now - dragState.current.lastTime
-    setMarqueeOffset(dragState.current.startOffset + delta)
+    setMarqueeOffset(normalizeOffset(dragState.current.startOffset + delta))
     if (dt > 0) {
       velocityRef.current = (frameDelta / dt) * 1000 // px per second
     }
@@ -223,7 +242,7 @@ function App() {
     const step = (now) => {
       const dt = (now - last) / 1000
       last = now
-      setMarqueeOffset((prev) => prev + velocityRef.current * dt)
+      setMarqueeOffset((prev) => normalizeOffset(prev + velocityRef.current * dt))
       velocityRef.current *= decay
       if (Math.abs(velocityRef.current) < threshold) {
         rafRef.current = null
