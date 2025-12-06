@@ -353,6 +353,10 @@
   margin-top: 10px;
 }
 
+.section--chat .section__lede {
+  max-width: 760px;
+}
+
 .split {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -454,6 +458,65 @@
 .footer__brand {
   color: var(--text);
   font-weight: 600;
+}
+
+.chat {
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.chat__window {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.chat__bubble {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.chat__bubble--assistant {
+  border-color: rgba(106, 240, 198, 0.35);
+  background: rgba(106, 240, 198, 0.08);
+}
+
+.chat__bubble--user {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.chat__form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat__input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.chat__note {
+  font-size: 14px;
+  color: var(--muted);
 }
 
 .marquee {

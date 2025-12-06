@@ -7,6 +7,7 @@ const navItems = [
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
+  { id: 'chat', label: 'Chat' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -123,6 +124,21 @@ const education = {
   details: ['B.S. Computer Science', 'Minor: Mathematics'],
 }
 
+const resumeProfile = {
+  summary:
+    'Software Developer focused on VR training, frontend, and systems-minded product work. Certified AWS Cloud Practitioner, Network+, Security+.',
+  location: 'Madison, WI · Remote-friendly',
+  education: education.details.join('; '),
+  experience: experiences.map((exp) => ({
+    company: exp.company,
+    role: exp.role,
+    timeframe: exp.timeframe,
+    focus: exp.focus,
+  })),
+  skills: skills.flatMap((group) => group.items),
+  contact: 'yajatnarayan@gmail.com',
+}
+
 const marqueeItems = [
   { label: 'AWS Cloud Practitioner', href: 'https://www.credly.com/badges' },
   { label: 'Network+', href: 'https://www.credly.com/badges' },
@@ -150,6 +166,13 @@ function App() {
   const [isDragging, setIsDragging] = useState(false)
   const [marqueeOffset, setMarqueeOffset] = useState(0)
   const [marqueeWidth, setMarqueeWidth] = useState(0)
+  const [chatHistory, setChatHistory] = useState([
+    {
+      role: 'assistant',
+      text: 'Hi, I am Yajat’s hiring assistant. Ask about my experience, skills, availability, or why I’m a fit.',
+    },
+  ])
+  const [chatInput, setChatInput] = useState('')
   const marqueeRef = useRef(null)
   const dragState = useRef({ startX: 0, startOffset: 0, lastX: 0, lastTime: 0 })
   const velocityRef = useRef(0)
@@ -259,6 +282,42 @@ function App() {
   const closeNav = () => setNavOpen(false)
   const toggleNav = () => setNavOpen((open) => !open)
   const toggleTheme = () => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+  const pushMessage = (role, text) => setChatHistory((prev) => [...prev, { role, text }])
+
+  const buildAnswer = (question) => {
+    const q = question.toLowerCase()
+    if (q.includes('experience') || q.includes('work history')) {
+      return `Recent roles: ${resumeProfile.experience
+        .map((e) => `${e.role} at ${e.company} (${e.timeframe})`)
+        .join('; ')}. Focus areas: VR training, frontend, CI/CD, data-heavy flows.`
+    }
+    if (q.includes('skills') || q.includes('tech') || q.includes('stack')) {
+      return `Key skills: ${resumeProfile.skills.join(', ')}. Certifications: ${resumeProfile.summary}.`
+    }
+    if (q.includes('education') || q.includes('degree')) {
+      return `Education: ${education.school} — ${education.timeline}. ${education.details.join(', ')}.`
+    }
+    if (q.includes('contact') || q.includes('reach') || q.includes('email')) {
+      return `Best contact: ${resumeProfile.contact}. Available for remote-friendly roles.`
+    }
+    if (q.includes('available') || q.includes('open')) {
+      return 'Open to roles in frontend, VR, and product-focused engineering. Remote-friendly.'
+    }
+    if (q.includes('why') || q.includes('fit') || q.includes('hire')) {
+      return 'I balance product thinking with hands-on engineering, shipping VR training software, data-aware web apps, and CI/CD pipelines. I collaborate closely with design and validate via UX testing.'
+    }
+    return 'I can answer hiring-related questions only (experience, skills, education, availability, contact, fit).'
+  }
+
+  const handleChatSubmit = (event) => {
+    event.preventDefault()
+    const trimmed = chatInput.trim()
+    if (!trimmed) return
+    pushMessage('user', trimmed)
+    const answer = buildAnswer(trimmed)
+    pushMessage('assistant', answer)
+    setChatInput('')
+  }
 
   return (
     <div className="page">
@@ -520,6 +579,45 @@ function App() {
                   Download resume →
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section--chat" id="chat" data-section>
+          <div className="section__header">
+            <p className="eyebrow">Chat</p>
+            <h2>Hiring-only assistant</h2>
+            <p className="section__lede">
+              Ask about my fit, experience, skills, education, or availability. Non-hiring questions are declined.
+            </p>
+          </div>
+          <div className="chat">
+            <div className="chat__window">
+              {chatHistory.map((msg, idx) => (
+                <div key={idx} className={`chat__bubble chat__bubble--${msg.role}`}>
+                  <p>{msg.text}</p>
+                </div>
+              ))}
+            </div>
+            <form className="chat__form" onSubmit={handleChatSubmit}>
+              <input
+                className="chat__input"
+                type="text"
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                placeholder="Ask about experience, skills, availability..."
+                aria-label="Chat input limited to hiring questions"
+              />
+              <button className="btn" type="submit">
+                Send
+              </button>
+            </form>
+            <div className="chat__note">
+              <p className="meta__label">Guardrails</p>
+              <p className="meta__value">
+                Replies are limited to hiring topics only. This assistant uses a rule-based summary of my resume; no
+                external calls or data are used.
+              </p>
             </div>
           </div>
         </section>
