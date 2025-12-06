@@ -467,6 +467,11 @@
   display: flex;
   gap: 18px;
   animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
 }
 
 .marquee__item {
@@ -478,6 +483,14 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.marquee__item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+  color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .timeline {

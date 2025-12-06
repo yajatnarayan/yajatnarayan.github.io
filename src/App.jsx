@@ -124,18 +124,18 @@ const education = {
 }
 
 const marqueeItems = [
-  'AWS Cloud Practitioner',
-  'Network+',
-  'Security+',
-  'Unity VR',
-  'Swift',
-  'React',
-  'Go',
-  'Docker',
-  'CI/CD',
-  'Analytics & SEO',
-  'PyTorch',
-  'Figma Systems',
+  { label: 'AWS Cloud Practitioner', href: 'https://www.credly.com/badges' },
+  { label: 'Network+', href: 'https://www.credly.com/badges' },
+  { label: 'Security+', href: 'https://www.credly.com/badges' },
+  { label: 'Unity VR', href: 'https://unity.com/' },
+  { label: 'Swift', href: 'https://developer.apple.com/swift/' },
+  { label: 'React', href: 'https://react.dev/' },
+  { label: 'Go', href: 'https://go.dev/' },
+  { label: 'Docker', href: 'https://www.docker.com/' },
+  { label: 'CI/CD', href: 'https://12factor.net/' },
+  { label: 'Analytics & SEO', href: 'https://developers.google.com/analytics' },
+  { label: 'PyTorch', href: 'https://pytorch.org/' },
+  { label: 'Figma Systems', href: 'https://www.figma.com/' },
 ]
 
 function App() {
@@ -292,9 +292,9 @@ function App() {
         <div className="marquee" aria-hidden>
           <div className="marquee__track">
             {marqueeItems.concat(marqueeItems).map((item, index) => (
-              <span key={`${item}-${index}`} className="marquee__item">
-                {item}
-              </span>
+              <a key={`${item.label}-${index}`} className="marquee__item" href={item.href}>
+                {item.label}
+              </a>
             ))}
           </div>
         </div>
