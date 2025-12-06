@@ -169,7 +169,8 @@ function App() {
   const [chatHistory, setChatHistory] = useState([
     {
       role: 'assistant',
-      text: 'Hi, I am Yajat’s hiring assistant. Ask about my experience, skills, availability, or why I’m a fit.',
+      text:
+        'Hi, I am Yajat’s hiring assistant. Ask about experience, skills, availability, contact, or fit. Fun fact: I stay on-topic no matter what.',
     },
   ])
   const [chatInput, setChatInput] = useState('')
@@ -286,27 +287,38 @@ function App() {
 
   const buildAnswer = (question) => {
     const q = question.toLowerCase()
-    if (q.includes('experience') || q.includes('work history')) {
+    const insults = ['stupid', 'dumb', 'gay', 'idiot', 'hate', 'bad']
+    if (insults.some((w) => q.includes(w))) {
+      return 'Let’s keep it professional—ask about hiring topics like skills, experience, or availability.'
+    }
+    const hiringKeywords = ['experience', 'work history', 'role', 'project', 'job', 'career']
+    const skillsKeywords = ['skill', 'stack', 'tech', 'tools', 'languages']
+    const eduKeywords = ['education', 'degree', 'school', 'university']
+    const contactKeywords = ['contact', 'reach', 'email', 'phone']
+    const availabilityKeywords = ['available', 'availability', 'open', 'start date']
+    const fitKeywords = ['why', 'fit', 'hire', 'strength', 'value']
+
+    if (hiringKeywords.some((k) => q.includes(k))) {
       return `Recent roles: ${resumeProfile.experience
         .map((e) => `${e.role} at ${e.company} (${e.timeframe})`)
         .join('; ')}. Focus areas: VR training, frontend, CI/CD, data-heavy flows.`
     }
-    if (q.includes('skills') || q.includes('tech') || q.includes('stack')) {
-      return `Key skills: ${resumeProfile.skills.join(', ')}. Certifications: ${resumeProfile.summary}.`
+    if (skillsKeywords.some((k) => q.includes(k))) {
+      return `Key skills: ${resumeProfile.skills.join(', ')}. Certifications: AWS Cloud Practitioner, Network+, Security+.`
     }
-    if (q.includes('education') || q.includes('degree')) {
+    if (eduKeywords.some((k) => q.includes(k))) {
       return `Education: ${education.school} — ${education.timeline}. ${education.details.join(', ')}.`
     }
-    if (q.includes('contact') || q.includes('reach') || q.includes('email')) {
+    if (contactKeywords.some((k) => q.includes(k))) {
       return `Best contact: ${resumeProfile.contact}. Available for remote-friendly roles.`
     }
-    if (q.includes('available') || q.includes('open')) {
+    if (availabilityKeywords.some((k) => q.includes(k))) {
       return 'Open to roles in frontend, VR, and product-focused engineering. Remote-friendly.'
     }
-    if (q.includes('why') || q.includes('fit') || q.includes('hire')) {
+    if (fitKeywords.some((k) => q.includes(k))) {
       return 'I balance product thinking with hands-on engineering, shipping VR training software, data-aware web apps, and CI/CD pipelines. I collaborate closely with design and validate via UX testing.'
     }
-    return 'I can answer hiring-related questions only (experience, skills, education, availability, contact, fit).'
+    return 'Curveballs are fun, but I only answer hiring topics: skills, experience, education, availability, contact, or fit.'
   }
 
   const handleChatSubmit = (event) => {
