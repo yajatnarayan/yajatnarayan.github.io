@@ -169,6 +169,12 @@ function App() {
 
   return (
     <div className="page">
+      <div className="bg-canvas" aria-hidden>
+        <div className="orb orb--a" />
+        <div className="orb orb--b" />
+        <div className="orb orb--c" />
+        <div className="grid-veil" />
+      </div>
       <header className="site-header">
         <a className="brand" href="#top">
           YN
