@@ -123,6 +123,21 @@ const education = {
   details: ['B.S. Computer Science', 'Minor: Mathematics'],
 }
 
+const marqueeItems = [
+  'AWS Cloud Practitioner',
+  'Network+',
+  'Security+',
+  'Unity VR',
+  'Swift',
+  'React',
+  'Go',
+  'Docker',
+  'CI/CD',
+  'Analytics & SEO',
+  'PyTorch',
+  'Figma Systems',
+]
+
 function App() {
   const [navOpen, setNavOpen] = useState(false)
   const [activeId, setActiveId] = useState('about')
@@ -274,6 +289,16 @@ function App() {
           </div>
         </section>
 
+        <div className="marquee" aria-hidden>
+          <div className="marquee__track">
+            {marqueeItems.concat(marqueeItems).map((item, index) => (
+              <span key={`${item}-${index}`} className="marquee__item">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <section className="section" id="experience" data-section>
           <div className="section__header">
             <p className="eyebrow">Experience</p>
@@ -282,25 +307,29 @@ function App() {
               Product-focused engineering across VR training, web experiences, and data-heavy workflows.
             </p>
           </div>
-          <div className="grid">
+          <div className="timeline">
             {experiences.map((exp) => (
-              <article key={exp.company} className="card card--project">
-                <div className="card__header">
-                  <div>
-                    <h3>{exp.company}</h3>
-                    <p className="meta__label">{exp.location}</p>
+              <article key={exp.company} className="timeline__item card card--project">
+                <div className="timeline__dot" />
+                <div className="timeline__content">
+                  <div className="card__header">
+                    <div>
+                      <h3>{exp.company}</h3>
+                      <p className="meta__label">{exp.location}</p>
+                    </div>
+                    <span className="pill">{exp.timeframe}</span>
                   </div>
-                  <span className="pill">{exp.timeframe}</span>
+                  <p className="meta__label">{exp.role}</p>
+                  <p>{exp.focus}</p>
+                  <ul className="list">
+                    {exp.bullets.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="meta__label">{exp.role}</p>
-                <p>{exp.focus}</p>
-                <ul className="list">
-                  {exp.bullets.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
               </article>
             ))}
+            <div className="timeline__line" aria-hidden />
           </div>
         </section>
 
