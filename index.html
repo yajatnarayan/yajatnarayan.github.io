@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Yajat Narayan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">YN</div>
+    <nav class="nav">
+      <a href="#about" class="nav__link">About</a>
+      <a href="#projects" class="nav__link">Projects</a>
+      <a href="#skills" class="nav__link">Skills</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+    <a class="nav__cta" href="#contact">Let's talk</a>
+    <button class="nav__toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__content">
+        <p class="eyebrow">Portfolio 2025</p>
+        <h1>Yajat Narayan</h1>
+        <p class="lede">
+          Frontend-focused developer crafting crisp interfaces, thoughtful interactions, and durable web experiences.
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="#projects">View projects</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="hero__meta">
+          <div>
+            <p class="meta__label">Location</p>
+            <p class="meta__value">Remote / IST</p>
+          </div>
+          <div>
+            <p class="meta__label">Focus</p>
+            <p class="meta__value">UI engineering, UX polish, performance</p>
+          </div>
+          <div>
+            <p class="meta__label">Currently</p>
+            <p class="meta__value">Building personal case studies</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <div class="panel__header">
+          <p class="eyebrow">Snapshot</p>
+          <span class="pill pill--success">Available for work</span>
+        </div>
+        <ul class="panel__list">
+          <li>
+            <p class="meta__label">Years in web</p>
+            <p class="meta__value">3+</p>
+          </li>
+          <li>
+            <p class="meta__label">Favorite stack</p>
+            <p class="meta__value">React, TypeScript, CSS-in-JS</p>
+          </li>
+          <li>
+            <p class="meta__label">What I ship</p>
+            <p class="meta__value">Accessible, responsive, tested UIs</p>
+          </li>
+        </ul>
+        <div class="panel__footer">
+          <p>Open to collaborations, contract, or full-time opportunities.</p>
+          <a class="link" href="#contact">Drop a line →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section__header">
+        <p class="eyebrow">About</p>
+        <h2>Crafting clear, resilient interfaces</h2>
+        <p class="section__lede">
+          I translate complex ideas into intuitive flows, balancing thoughtful interaction design with maintainable code.
+        </p>
+      </div>
+      <div class="split">
+        <div class="card">
+          <h3>Approach</h3>
+          <p>
+            Every project starts with clarity: align on the problem, prototype quickly, validate early, then refine the details that make the experience feel effortless.
+          </p>
+        </div>
+        <div class="card card--stacked">
+          <div>
+            <p class="meta__label">Strengths</p>
+            <p class="meta__value">Design systems, responsive layouts, performance tuning, docs</p>
+          </div>
+          <div>
+            <p class="meta__label">Tooling</p>
+            <p class="meta__value">Figma, Storybook, Vite, Vitest, Playwright</p>
+          </div>
+          <div>
+            <p class="meta__label">Collaboration</p>
+            <p class="meta__value">Pairing with designers, mentoring juniors, async-friendly</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section__header">
+        <p class="eyebrow">Projects</p>
+        <h2>Selected work and explorations</h2>
+        <p class="section__lede">Case studies and prototypes that highlight execution, UX polish, and systems thinking.</p>
+      </div>
+      <div class="grid">
+        <article class="card card--project">
+          <div class="card__header">
+            <h3>Design System Starter</h3>
+            <span class="pill">React</span>
+          </div>
+          <p>A component library with tokens, accessible primitives, and Storybook docs to keep teams aligned.</p>
+          <div class="tags">
+            <span>Tokens</span>
+            <span>Accessibility</span>
+            <span>Storybook</span>
+          </div>
+          <a class="link" href="#">Read the case study →</a>
+        </article>
+        <article class="card card--project">
+          <div class="card__header">
+            <h3>Insight Dashboard</h3>
+            <span class="pill pill--neutral">TypeScript</span>
+          </div>
+          <p>Responsive dashboard with live charts, keyboard-first controls, and offline-ready data caching.</p>
+          <div class="tags">
+            <span>Data viz</span>
+            <span>PWA</span>
+            <span>State machines</span>
+          </div>
+          <a class="link" href="#">Explore the build →</a>
+        </article>
+        <article class="card card--project">
+          <div class="card__header">
+            <h3>Launch Microsite</h3>
+            <span class="pill pill--highlight">CSS</span>
+          </div>
+          <p>Animated product launch page with scroll storytelling, responsive art direction, and semantic markup.</p>
+          <div class="tags">
+            <span>Animations</span>
+            <span>SEO</span>
+            <span>Responsive art</span>
+          </div>
+          <a class="link" href="#">See the walkthrough →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section__header">
+        <p class="eyebrow">Skills</p>
+        <h2>Tools and technologies</h2>
+        <p class="section__lede">A quick view of my preferred stack and comfort zones.</p>
+      </div>
+      <div class="grid grid--skills">
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="tags">
+            <span>React</span>
+            <span>Next.js</span>
+            <span>Vite</span>
+            <span>TypeScript</span>
+            <span>CSS Modules</span>
+            <span>Framer Motion</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Quality</h3>
+          <div class="tags">
+            <span>Jest</span>
+            <span>Vitest</span>
+            <span>Playwright</span>
+            <span>Lighthouse</span>
+            <span>Accessibility audits</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Backend & Ops</h3>
+          <div class="tags">
+            <span>Node</span>
+            <span>Express</span>
+            <span>REST</span>
+            <span>PostgreSQL</span>
+            <span>Docker</span>
+            <span>CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section__header">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's build something thoughtful</h2>
+        <p class="section__lede">Tell me about the problem, timeline, and what success looks like.</p>
+      </div>
+      <div class="split">
+        <div class="card">
+          <h3>Prefer email?</h3>
+          <p>Reach out with a short brief, and I'll reply within one business day.</p>
+          <a class="btn" href="mailto:hello@yajatnarayan.com">hello@yajatnarayan.com</a>
+        </div>
+        <div class="card card--stacked">
+          <div>
+            <p class="meta__label">LinkedIn</p>
+            <a class="link" href="https://www.linkedin.com">linkedin.com/in/yajatnarayan</a>
+          </div>
+          <div>
+            <p class="meta__label">GitHub</p>
+            <a class="link" href="https://github.com/yajatnarayan">github.com/yajatnarayan</a>
+          </div>
+          <div>
+            <p class="meta__label">Resume</p>
+            <a class="link" href="#">Request the latest PDF →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">YN</div>
+    <p>Designing, building, and shipping considerate web experiences.</p>
+    <a class="link" href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
