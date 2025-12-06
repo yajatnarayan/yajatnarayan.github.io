@@ -126,6 +126,12 @@ const education = {
 function App() {
   const [navOpen, setNavOpen] = useState(false)
   const [activeId, setActiveId] = useState('about')
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    }
+    return 'dark'
+  })
 
   useEffect(() => {
     const sections = document.querySelectorAll('[data-section]')
@@ -153,8 +159,13 @@ function App() {
     return () => window.removeEventListener('keydown', closeOnEscape)
   }, [])
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
   const closeNav = () => setNavOpen(false)
   const toggleNav = () => setNavOpen((open) => !open)
+  const toggleTheme = () => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
 
   return (
     <div className="page">
@@ -174,19 +185,24 @@ function App() {
             </a>
           ))}
         </nav>
-        <a className="nav__cta" href="#contact">
-          Let&apos;s talk
-        </a>
-        <button
-          className="nav__toggle"
-          aria-label="Toggle navigation"
-          aria-expanded={navOpen}
-          onClick={toggleNav}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="header__actions">
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
+          <a className="nav__cta" href="#contact">
+            Let&apos;s talk
+          </a>
+          <button
+            className="nav__toggle"
+            aria-label="Toggle navigation"
+            aria-expanded={navOpen}
+            onClick={toggleNav}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </header>
 
       <main className="shell" id="top">
@@ -195,8 +211,8 @@ function App() {
             <p className="eyebrow">Portfolio 2025</p>
             <h1>Yajat Narayan</h1>
             <p className="lede">
-              CS @ UW–Madison (Math minor) building VR training and performant web experiences. Certified in AWS Cloud,
-              Network+, and Security+, with hands-on product, UX, and CI/CD delivery.
+              CS @ UW–Madison (Math minor) improving my CS skills through VR training, frontend engineering, and
+              systems-minded product work. AWS Cloud, Network+, and Security+ certified.
             </p>
             <div className="hero__actions">
               <a className="btn" href="#projects">
@@ -204,6 +220,9 @@ function App() {
               </a>
               <a className="btn btn--ghost" href="#contact">
                 Get in touch
+              </a>
+              <a className="btn btn--ghost" href="/Resume.pdf" download>
+                Download resume
               </a>
             </div>
             <div className="hero__meta">
@@ -213,7 +232,7 @@ function App() {
               </div>
               <div>
                 <p className="meta__label">Focus</p>
-                <p className="meta__value">VR training, frontend engineering, data-driven UX</p>
+                <p className="meta__value">Improving CS skills across systems, AI, and product engineering</p>
               </div>
               <div>
                 <p className="meta__label">Currently</p>
@@ -228,12 +247,12 @@ function App() {
             </div>
             <ul className="panel__list">
               <li>
-                <p className="meta__label">GitHub</p>
-                <p className="meta__value">6 public repos · active since 2020</p>
-              </li>
-              <li>
                 <p className="meta__label">Certifications</p>
                 <p className="meta__value">AWS Cloud Practitioner, Network+, Security+</p>
+              </li>
+              <li>
+                <p className="meta__label">Learning</p>
+                <p className="meta__value">Deepening CS foundations via VR systems, ML, and web</p>
               </li>
               <li>
                 <p className="meta__label">Tooling</p>
@@ -370,7 +389,9 @@ function App() {
               </div>
               <div>
                 <p className="meta__label">Resume</p>
-                <p className="meta__value">Available on request</p>
+                <a className="link" href="/Resume.pdf" download>
+                  Download resume →
+                </a>
               </div>
             </div>
           </div>

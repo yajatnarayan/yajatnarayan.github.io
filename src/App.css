@@ -20,7 +20,7 @@
   width: 100%;
   padding: 18px 4vw;
   backdrop-filter: blur(12px);
-  background: rgba(13, 19, 37, 0.8);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -83,6 +83,25 @@
   background: var(--text);
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .hero {
   display: grid;
   gap: 24px;
@@ -92,7 +111,7 @@
 }
 
 .hero__content {
-  background: rgba(15, 28, 56, 0.6);
+  background: var(--panel-strong);
   padding: 28px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -248,7 +267,7 @@
 }
 
 .card {
-  background: rgba(16, 26, 50, 0.8);
+  background: var(--panel);
   border-radius: var(--radius);
   padding: 18px;
   border: 1px solid var(--border);

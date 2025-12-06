@@ -4,6 +4,7 @@
   --bg: #0d1325;
   --bg-muted: #101a32;
   --panel: #0f1c38;
+  --panel-strong: rgba(15, 28, 56, 0.6);
   --text: #e6edf7;
   --muted: #9db0d1;
   --border: rgba(255, 255, 255, 0.08);
@@ -11,6 +12,27 @@
   --accent-2: #f9b572;
   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   --radius: 16px;
+  --header-bg: rgba(13, 19, 37, 0.85);
+  --bg-gradient: radial-gradient(circle at 20% 20%, rgba(125, 216, 193, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(249, 181, 114, 0.12), transparent 40%),
+    linear-gradient(180deg, #0b1120 0%, #0b1221 100%);
+}
+
+[data-theme='light'] {
+  --bg: #f7f9fc;
+  --bg-muted: #eef2fb;
+  --panel: #ffffff;
+  --panel-strong: #ffffff;
+  --text: #0f172a;
+  --muted: #51607a;
+  --border: rgba(15, 23, 42, 0.08);
+  --accent: #2b7fff;
+  --accent-2: #f9b572;
+  --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(43, 127, 255, 0.12), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(249, 181, 114, 0.16), transparent 40%),
+    linear-gradient(180deg, #f7f9fc 0%, #eef2fb 100%);
 }
 
 * {
@@ -20,9 +42,7 @@
 body {
   margin: 0;
   font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  background: radial-gradient(circle at 20% 20%, rgba(125, 216, 193, 0.1), transparent 35%),
-    radial-gradient(circle at 80% 0%, rgba(249, 181, 114, 0.12), transparent 40%),
-    linear-gradient(180deg, #0b1120 0%, #0b1221 100%);
+  background: var(--bg-gradient);
   color: var(--text);
   min-height: 100vh;
   scroll-behavior: smooth;
