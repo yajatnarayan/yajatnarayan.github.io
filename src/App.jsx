@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 const navItems = [
@@ -147,6 +147,10 @@ function App() {
     }
     return 'dark'
   })
+  const [isDragging, setIsDragging] = useState(false)
+  const [marqueeOffset, setMarqueeOffset] = useState(0)
+  const marqueeRef = useRef(null)
+  const dragState = useRef({ startX: 0, startOffset: 0 })
 
   useEffect(() => {
     const sections = document.querySelectorAll('[data-section]')
@@ -177,6 +181,23 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
+
+  const startDrag = (event) => {
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX
+    dragState.current = { startX: clientX, startOffset: marqueeOffset }
+    setIsDragging(true)
+  }
+
+  const onDrag = (event) => {
+    if (!isDragging) return
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX
+    const delta = clientX - dragState.current.startX
+    setMarqueeOffset(dragState.current.startOffset + delta)
+  }
+
+  const endDrag = () => {
+    setIsDragging(false)
+  }
 
   const closeNav = () => setNavOpen(false)
   const toggleNav = () => setNavOpen((open) => !open)
@@ -289,8 +310,22 @@ function App() {
           </div>
         </section>
 
-        <div className="marquee" aria-hidden>
-          <div className="marquee__track">
+        <div
+          className="marquee"
+          aria-hidden
+          onMouseDown={startDrag}
+          onMouseMove={onDrag}
+          onMouseUp={endDrag}
+          onMouseLeave={endDrag}
+          onTouchStart={startDrag}
+          onTouchMove={onDrag}
+          onTouchEnd={endDrag}
+        >
+          <div
+            className="marquee__track marquee__track--draggable"
+            ref={marqueeRef}
+            style={{ transform: `translateX(${marqueeOffset}px)` }}
+          >
             {marqueeItems.concat(marqueeItems).map((item, index) => (
               <a key={`${item.label}-${index}`} className="marquee__item" href={item.href}>
                 {item.label}

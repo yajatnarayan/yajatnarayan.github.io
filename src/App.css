@@ -470,8 +470,13 @@
   will-change: transform;
 }
 
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
+.marquee__track--draggable {
+  animation: none;
+  cursor: grab;
+}
+
+.marquee:active .marquee__track--draggable {
+  cursor: grabbing;
 }
 
 .marquee__item {
