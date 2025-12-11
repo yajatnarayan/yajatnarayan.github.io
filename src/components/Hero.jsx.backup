@@ -1,0 +1,66 @@
+import { personalInfo } from '../data/resume'
+
+export function Hero() {
+  return (
+    <section className="hero" id="about" data-section>
+      <div className="hero__content">
+        <p className="eyebrow">Software Developer</p>
+        <h1>{personalInfo.name}</h1>
+        <p className="lede">{personalInfo.tagline}</p>
+        <div className="hero__actions">
+          <a className="btn" href="#projects">
+            View case studies
+          </a>
+          <a className="btn btn--ghost" href="#contact">
+            Book a call
+          </a>
+          <a className="btn btn--ghost" href="/Resume.pdf" download rel="noopener noreferrer">
+            Download resume
+          </a>
+        </div>
+        <div className="hero__meta">
+          <div>
+            <p className="meta__label">Location</p>
+            <p className="meta__value">
+              {personalInfo.location} · {personalInfo.remotePreference}
+            </p>
+          </div>
+          <div>
+            <p className="meta__label">Focus Areas</p>
+            <p className="meta__value">VR systems, data-driven web, cloud infrastructure</p>
+          </div>
+          <div>
+            <p className="meta__label">Currently</p>
+            <p className="meta__value">Software Developer @ Holos.io</p>
+          </div>
+        </div>
+      </div>
+      <aside className="hero__panel" aria-label="Quick facts">
+        <div className="panel__header">
+          <p className="eyebrow">Snapshot</p>
+          <span className="pill pill--success">Open to roles</span>
+        </div>
+        <ul className="panel__list">
+          <li>
+            <p className="meta__label">Certifications</p>
+            <p className="meta__value">AWS Cloud Practitioner, Network+, Security+</p>
+          </li>
+          <li>
+            <p className="meta__label">Education</p>
+            <p className="meta__value">UW–Madison CS (Math minor), GPA 3.7/4.0</p>
+          </li>
+          <li>
+            <p className="meta__label">Recent Impact</p>
+            <p className="meta__value">35% training efficiency gain, $15M defense contract</p>
+          </li>
+        </ul>
+        <div className="panel__footer">
+          <p>Building VR, web, and cloud products that ship.</p>
+          <a className="link" href="#contact" aria-label="Contact Yajat">
+            Get in touch →
+          </a>
+        </div>
+      </aside>
+    </section>
+  )
+}

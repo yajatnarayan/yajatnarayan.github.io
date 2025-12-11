@@ -1,0 +1,39 @@
+export function Experience({ experiences }) {
+  return (
+    <section className="section" id="experience" data-section>
+      <div className="section__header">
+        <p className="eyebrow">Experience</p>
+        <h2>Building products that scale</h2>
+        <p className="section__lede">
+          Product-minded engineering across VR training, web optimization, and cloud infrastructure.
+        </p>
+      </div>
+      <div className="timeline">
+        {experiences.map((exp) => (
+          <article key={`${exp.company}-${exp.timeframe}`} className="timeline__item card card--project">
+            <div className="timeline__dot" aria-hidden="true" />
+            <div className="timeline__content">
+              <div className="card__header">
+                <div>
+                  <h3>{exp.company}</h3>
+                  <p className="meta__label">{exp.location}</p>
+                </div>
+                <span className="pill" aria-label={`Employment period: ${exp.timeframe}`}>
+                  {exp.timeframe}
+                </span>
+              </div>
+              <p className="meta__label">{exp.role}</p>
+              <p className="focus-area">{exp.focus}</p>
+              <ul className="list">
+                {exp.bullets.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+        <div className="timeline__line" aria-hidden="true" />
+      </div>
+    </section>
+  )
+}

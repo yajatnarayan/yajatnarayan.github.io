@@ -1,0 +1,32 @@
+export function Projects({ projects }) {
+  return (
+    <section className="section" id="projects" data-section>
+      <div className="section__header">
+        <p className="eyebrow">Projects</p>
+        <h2>Case studies and explorations</h2>
+        <p className="section__lede">Selected work spanning VR, web optimization, machine learning, and security.</p>
+      </div>
+      <div className="grid">
+        {projects.map((project) => (
+          <article key={project.title} className="card card--project">
+            <div className="card__header">
+              <h3>{project.title}</h3>
+              <span className="pill" aria-label={`Project category: ${project.tag}`}>
+                {project.tag}
+              </span>
+            </div>
+            <p>{project.description}</p>
+            <div className="tags" aria-label="Technologies used">
+              {project.pills.map((pill) => (
+                <span key={pill}>{pill}</span>
+              ))}
+            </div>
+            <a className="link" href={project.link} target="_blank" rel="noopener noreferrer">
+              {project.cta} →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}

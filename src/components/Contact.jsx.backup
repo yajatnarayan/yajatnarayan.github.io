@@ -1,0 +1,44 @@
+import { personalInfo } from '../data/resume'
+
+export function Contact() {
+  return (
+    <section className="section" id="contact" data-section>
+      <div className="section__header">
+        <p className="eyebrow">Contact</p>
+        <h2>Let's build something impactful</h2>
+        <p className="section__lede">
+          Tell me about your product vision, team culture, and what success looks like for this role.
+        </p>
+      </div>
+      <div className="split">
+        <div className="card">
+          <h3>Prefer email?</h3>
+          <p>Send a brief intro about the role and your team. I typically respond within one business day.</p>
+          <a className="btn" href={`mailto:${personalInfo.email}`} rel="noopener noreferrer">
+            {personalInfo.email}
+          </a>
+        </div>
+        <div className="card card--stacked">
+          <div>
+            <p className="meta__label">LinkedIn</p>
+            <a className="link" href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">
+              View profile
+            </a>
+          </div>
+          <div>
+            <p className="meta__label">GitHub</p>
+            <a className="link" href={personalInfo.github} target="_blank" rel="noopener noreferrer">
+              Explore repositories
+            </a>
+          </div>
+          <div>
+            <p className="meta__label">Resume</p>
+            <a className="link" href="/Resume.pdf" download rel="noopener noreferrer">
+              Download PDF →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

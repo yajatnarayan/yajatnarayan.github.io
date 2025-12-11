@@ -1,0 +1,23 @@
+export function Education({ education }) {
+  return (
+    <section className="section" id="education" data-section>
+      <div className="section__header">
+        <p className="eyebrow">Education</p>
+        <h2>{education.school}</h2>
+        <p className="section__lede">
+          {education.timeline} · GPA {education.gpa}
+        </p>
+      </div>
+      <div className="card card--stacked">
+        {education.details.map((item) => (
+          <p key={item} className="meta__value">
+            {item}
+          </p>
+        ))}
+        <p className="meta__value education__note">
+          Coursework: Systems Programming, Machine Learning, Data Structures, Software Engineering
+        </p>
+      </div>
+    </section>
+  )
+}
