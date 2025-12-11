@@ -81,6 +81,14 @@ function App() {
             </nav>
 
             <div className="sidebar__footer">
+              <a
+                href="/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-link"
+              >
+                View Full Resume
+              </a>
               <div className="sidebar__social">
                 <a
                   href={personalInfo.github}
