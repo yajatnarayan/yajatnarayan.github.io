@@ -447,6 +447,27 @@ section h2 {
 }
 
 /* Skills section */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skills-group-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--lightest-slate);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;

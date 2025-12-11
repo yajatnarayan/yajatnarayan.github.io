@@ -120,16 +120,16 @@ export const projects = [
 
 export const skills = [
   {
-    title: 'Programming',
-    items: ['Python', 'Java', 'Go', 'Swift', 'C', 'JavaScript/React', 'SQL/MySQL', 'Julia'],
+    title: 'Backend',
+    items: ['Python', 'Java', 'Go', 'Swift', 'C', 'SQL/MySQL', 'Julia', 'AWS Lambda', 'DynamoDB'],
   },
   {
-    title: 'Cloud & Ops',
-    items: ['AWS', 'Docker', 'CI/CD', 'DynamoDB', 'Git', 'Lambda', 'Automation Pipelines'],
+    title: 'Frontend',
+    items: ['JavaScript', 'React', 'HTML/CSS', 'Unity', 'Figma', 'UX Testing', 'SEO', 'Analytics'],
   },
   {
-    title: 'Product & Tools',
-    items: ['Figma', 'UX Testing', 'Analytics/SEO', 'Linear', 'VS Code', 'PyCharm', 'Eclipse'],
+    title: 'DevOps & Tools',
+    items: ['AWS', 'Docker', 'CI/CD', 'Git', 'Automation Pipelines', 'VS Code', 'PyCharm', 'Linear'],
   },
 ]
 
