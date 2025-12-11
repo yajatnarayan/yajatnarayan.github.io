@@ -22,6 +22,15 @@ export function useScrollSpy(sectionIds, options = {}) {
     const entriesMap = new Map()
 
     const findMostVisibleSection = () => {
+      // Check if we're at bottom of page first - if so, force last section
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+
+      if (scrollTop + windowHeight >= documentHeight - 100) {
+        return sectionIds[sectionIds.length - 1]
+      }
+
       // Get all currently intersecting entries
       const intersecting = Array.from(entriesMap.values()).filter(
         (entry) => entry.isIntersecting

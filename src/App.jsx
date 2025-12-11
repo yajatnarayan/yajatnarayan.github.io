@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
@@ -20,6 +20,20 @@ function App() {
 
   // Use scrollspy hook to track active section
   const activeSection = useScrollSpy(sectionIds)
+
+  // Cursor spotlight effect
+  useEffect(() => {
+    const updateCursorPosition = (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`)
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`)
+    }
+
+    window.addEventListener('mousemove', updateCursorPosition)
+
+    return () => {
+      window.removeEventListener('mousemove', updateCursorPosition)
+    }
+  }, [])
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)

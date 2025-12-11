@@ -2,6 +2,36 @@
 .app {
   min-height: 100vh;
   background-color: var(--navy);
+  position: relative;
+}
+
+/* Cursor spotlight effect */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(100, 255, 218, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 30;
+}
+
+.app:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app::before {
+    display: none;
+  }
 }
 
 /* Skip link */
@@ -27,6 +57,8 @@
 /* Main container - two-column layout */
 .container {
   display: flex;
+  position: relative;
+  z-index: 2;
   min-height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
@@ -191,9 +223,10 @@ section h2 {
   margin-bottom: 2rem;
   position: sticky;
   top: 0;
-  background: var(--navy);
   padding: 1rem 0;
   z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 25, 47, 0.85);
 }
 
 /* About section */
@@ -263,6 +296,11 @@ section h2 {
   font-weight: 500;
   color: var(--lightest-slate);
   margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.experience-item:hover .experience-content h3 {
+  color: var(--teal);
 }
 
 .experience-content h3 a {
@@ -347,6 +385,11 @@ section h2 {
   font-weight: 500;
   color: var(--lightest-slate);
   margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+.project-item:hover h3 {
+  color: var(--teal);
 }
 
 .project-item h3 a {
@@ -363,6 +406,11 @@ section h2 {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.project-item:hover h3 svg {
+  transform: translate(4px, -4px);
 }
 
 .project-description {
