@@ -128,7 +128,7 @@ export function Marquee({ items }) {
   return (
     <div
       className="marquee"
-      aria-label="Skills and certifications marquee"
+      aria-label="Skills and technologies marquee"
       role="region"
       tabIndex="0"
       onMouseDown={startDrag}
