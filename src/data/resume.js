@@ -72,40 +72,22 @@ export const experiences = [
 
 export const projects = [
   {
-    title: 'Holos VR Training Platform',
-    tag: 'VR',
+    title: 'UnoPass - Local-First Password Manager',
+    tag: 'Security',
     description:
-      'Immersive VR training software built with Unity and Swift to streamline U.S. Air Force equipment training, reducing onboarding time and operational risk through realistic simulations.',
-    pills: ['Unity', 'Swift', 'UX Testing', 'Figma'],
-    link: personalInfo.linkedin,
-    cta: 'View profile',
-  },
-  {
-    title: 'Moon Bar Digital Experience',
-    tag: 'Web',
-    description:
-      'High-performance marketing site with integrated analytics and SEO optimization, driving $50k+ monthly sales for a hospitality business through improved discoverability and conversion.',
-    pills: ['JavaScript', 'SEO', 'Analytics', 'Figma'],
+      'Privacy-focused password manager built as an alternative to cloud solutions after LastPass breaches. Features AES-256-GCM encryption, scrypt KDF (N=65,536), and HMAC-SHA256 verification achieving OWASP compliance. Chrome extension with autofill, rate limiting (5 attempts/15min), and auto-lock sessions.',
+    pills: ['TypeScript', 'Node.js', 'React', 'Chrome Extension API'],
     link: personalInfo.github,
-    cta: 'Explore code',
-  },
-  {
-    title: 'Deep Learning Scene Recognition',
-    tag: 'AI',
-    description:
-      'LeNet-5 convolutional neural network implemented in PyTorch for the MiniPlaces dataset, achieving 25%+ validation accuracy improvement through data augmentation and hyperparameter tuning.',
-    pills: ['Python', 'PyTorch', 'CNN', 'Data Pipelines'],
-    link: 'https://github.com/yajatnarayan/NeuralNetwork',
     cta: 'View repository',
   },
   {
-    title: 'Password Security Analysis',
-    tag: 'Security',
+    title: 'Handwritten Digit Recognition from Scratch',
+    tag: 'AI',
     description:
-      'Password hardening system using Argon2 hashing, breach detection via HaveIBeenPwned API, and simulated dictionary attacks—reducing vulnerability by 80% in security audits.',
-    pills: ['Python', 'Argon2', 'Security APIs'],
+      'Neural network built from scratch using only NumPy (no TensorFlow/PyTorch) to deeply understand ML fundamentals, implementing backpropagation and gradient descent from mathematical first principles. Full-stack demo with HTML5 Canvas for real-time drawing and Flask REST API for inference.',
+    pills: ['Python', 'NumPy', 'Flask', 'JavaScript', 'HTML5 Canvas'],
     link: personalInfo.github,
-    cta: 'Explore code',
+    cta: 'View repository',
   },
 ]
 
