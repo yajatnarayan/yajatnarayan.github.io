@@ -9,7 +9,6 @@ export function Education({ education }) {
             <strong>{education.details.join(' • ')}</strong>
           </p>
           <p>{education.timeline}</p>
-          <p>GPA: {education.gpa}</p>
         </div>
       </div>
     </section>
