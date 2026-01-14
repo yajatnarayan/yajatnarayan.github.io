@@ -112,28 +112,21 @@ export const skills = [
 
 export const education = {
   school: 'University of Wisconsin–Madison',
-  timeline: 'Aug 2022 – May 2026',
+  timeline: 'Aug 2022 – Dec 2025',
   details: ['B.S. Computer Science', 'Minor: Mathematics'],
-  gpa: '3.7/4.0',
 }
 
-export const certifications = [
-  { label: 'AWS Cloud Practitioner', href: 'https://www.credly.com/badges', verified: true },
-  { label: 'CompTIA Network+', href: 'https://www.credly.com/badges', verified: true },
-  { label: 'CompTIA Security+', href: 'https://www.credly.com/badges', verified: true },
-]
-
 export const marqueeItems = [
-  ...certifications,
   { label: 'Unity VR', href: 'https://unity.com/' },
   { label: 'Swift', href: 'https://developer.apple.com/swift/' },
   { label: 'React', href: 'https://react.dev/' },
-  { label: 'Go', href: 'https://go.dev/' },
+  { label: 'GoLang', href: 'https://go.dev/' },
+  { label: 'TypeScript', href: 'https://www.typescriptlang.org/' },
   { label: 'Docker', href: 'https://www.docker.com/' },
-  { label: 'CI/CD Pipelines', href: 'https://12factor.net/' },
-  { label: 'Analytics & SEO', href: 'https://developers.google.com/analytics' },
+  { label: 'AWS', href: 'https://aws.amazon.com/' },
+  { label: 'Node.js', href: 'https://nodejs.org/' },
+  { label: 'Flask', href: 'https://flask.palletsprojects.com/' },
   { label: 'PyTorch', href: 'https://pytorch.org/' },
-  { label: 'Figma Systems', href: 'https://www.figma.com/' },
 ]
 
 export const chatGreeting = {
