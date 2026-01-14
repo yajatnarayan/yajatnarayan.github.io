@@ -141,11 +141,13 @@
   position: relative;
 }
 
-.sidebar__nav a:hover,
-.sidebar__nav a:focus {
-  color: var(--lightest-slate);
+/* Hover state - subtle preview, only for non-active items */
+.sidebar__nav a:not(.active):hover,
+.sidebar__nav a:not(.active):focus {
+  color: var(--light-slate);
 }
 
+/* Active state - prominent highlight */
 .sidebar__nav a.active {
   color: var(--lightest-slate);
 }
@@ -158,12 +160,14 @@
   transition: var(--transition);
 }
 
-.sidebar__nav a:hover .nav-indicator,
-.sidebar__nav a:focus .nav-indicator {
-  width: 4rem;
-  background: var(--lightest-slate);
+/* Hover indicator - subtle extension for non-active items */
+.sidebar__nav a:not(.active):hover .nav-indicator,
+.sidebar__nav a:not(.active):focus .nav-indicator {
+  width: 3rem;
+  background: var(--light-slate);
 }
 
+/* Active indicator - full extension with accent color */
 .sidebar__nav a.active .nav-indicator {
   width: 4rem;
   background: var(--lightest-slate);
