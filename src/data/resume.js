@@ -142,11 +142,10 @@ export const quickQuestions = [
 ]
 
 export const chatKnowledgeBase = {
-  summary: `Software Developer specializing in VR training systems, frontend engineering, and cloud infrastructure. Currently building immersive training software for U.S. Air Force operations at Holos.io using Unity and Swift. AWS Cloud Practitioner, Network+, and Security+ certified.`,
+  summary: `Software Developer with experience in VR training systems, backend microservices, and privacy-focused applications. Built VR training modules for $15M Air Force contract at Holos.io. Previously developed scalable GoLang microservices at Siemens supporting ISO 27001 compliance. Passionate about building secure, performant software.`,
   experience: experiences,
   skills: skills.flatMap((group) => group.items),
   education: education,
-  certifications: certifications.map((c) => c.label),
   contact: personalInfo.email,
   availability: personalInfo.availability,
   location: `${personalInfo.location} · ${personalInfo.remotePreference}`,
